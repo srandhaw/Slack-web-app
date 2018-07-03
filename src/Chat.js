@@ -33,6 +33,22 @@ this.state = {
             ]
 }
     }
+
+    addMessage  = (body) => {
+        const messages = [...this.state.messages]
+
+        messages.push({
+            id: Date.now(),
+            user: {
+                uid: '23132323dfv',
+                displayName: 'Shiv',
+                email: 'shiv@purdue.edu'
+            },
+            body: body,
+        })
+
+        this.setState({messages: messages})
+    }
     
 
     render(){
@@ -40,7 +56,7 @@ this.state = {
            <div className =  'Chat'>
            <ChatHeader />
            <MessageList messages = {this.state.messages}/>
-           <MessageForm />
+           <MessageForm addMessage = {this.addMessage}/>
            </div> 
         )
     }
