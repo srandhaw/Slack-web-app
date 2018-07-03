@@ -36,14 +36,11 @@ this.state = {
 
     addMessage  = (body) => {
         const messages = [...this.state.messages]
+    
 
         messages.push({
-            id: Date.now(),
-            user: {
-                uid: '23132323dfv',
-                displayName: 'Shiv',
-                email: 'shiv@purdue.edu'
-            },
+            id: `${this.props.user.uid} - ${Date.now()}`,
+            user: this.props.user,
             body: body,
         })
 
