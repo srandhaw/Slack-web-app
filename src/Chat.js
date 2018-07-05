@@ -9,28 +9,7 @@ class Chat extends Component{
 super()
 
 this.state = {
-     messages: [
-        { id: 1,
-          user: {
-              uid: '23131231',
-              displayName: 'Sehaj',
-              email: 'srandhaw@purdue.edu'
-          },
-          body: "Hey whatsuppp!"
-        },
-        
-        {
-            id: 2,
-            user: {
-                uid: '13qescq123',
-                displayName: 'Davey',
-                email: 'davey@fretless.com'
-            },
-            body: "Good man!!!" 
-        },
-        
-        
-            ]
+     messages: []
 }
     }
 
