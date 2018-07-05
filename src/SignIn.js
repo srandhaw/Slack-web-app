@@ -30,7 +30,7 @@ email: '',
             <header className={css(styles.header)}>
               <span className={css(styles.title)}>
                 <i className="fas fa-hashtag"></i>
-                Chatarang
+                SLACK
               </span>
             </header>
             <main className={css(styles.main)}>
@@ -64,7 +64,8 @@ email: '',
                 <h2 className={css(styles.h2)}>
                   You're in good company.
                 </h2>
-                <p>Ones of people are already using Chatarang.</p>
+                
+                <p>A slack clone by Sehajbir Randhawa</p>
               </div>
             </main>
           </div>
