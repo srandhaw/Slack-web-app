@@ -20,6 +20,7 @@ const styles = {
   width: '40px',
   fontSize: '1rem',
   borderRadius: '20px',
+  
 }
 
 export default Avatar
