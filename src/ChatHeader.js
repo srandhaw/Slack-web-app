@@ -21,7 +21,6 @@ const styles = {
         borderBottom: '1px solid #ccc',
         height: '3rem',
         padding: '0 1rem',
-        width: '100%',
         display: 'flex',
         alignItems: 'center'
       },
