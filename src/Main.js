@@ -6,7 +6,7 @@ class Main extends Component{
     render(){
         return(
 <div style = {styles} className = "Main">
-<SideBar user = {this.props.user}/>
+<SideBar user = {this.props.user} signOut = {this.props.signOut}/>
 <Chat  user = {this.props.user}/>
 </div>
         )

@@ -13,7 +13,7 @@ const UserInfo = (props) => {
         {props.user.displayName}
       </div>
 
-      <SignOutButton />
+      <SignOutButton signOut = {props.signOut}/>
       
     </div>
   )
