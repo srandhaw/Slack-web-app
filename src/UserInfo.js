@@ -8,7 +8,7 @@ const UserInfo = (props) => {
       className="UserInfo"
       style={styles.userInfo}
     >
-      <Avatar user = 'props.user'/>
+      <Avatar user = {props.user}/>
       <div style={styles.user}>
         {props.user.displayName}
       </div>

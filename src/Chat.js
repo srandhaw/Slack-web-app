@@ -16,14 +16,18 @@ this.state = {
     }
 
 componentDidMount(){
-    base.syncState(
-        'messages',
+    this.messagesref = base.syncState(
+        'messages/general',
         {
             context: this,
             state: 'messages',
             asArray: true
         }
     )
+}
+
+componentWillUnmount(){
+    base.removeBinding(this.messagesref)
 }
 
     addMessage  = (body) => {

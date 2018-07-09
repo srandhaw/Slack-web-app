@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Avatar = (props) => {
-  const imageUrl = `https://api.adorable.io/avatars/40/${props.user.email}.png`
+  const imageUrl = props.user.photoUrl||`https://api.adorable.io/avatars/40/${props.user.email}.png`
 
   return (
     <div
@@ -20,6 +20,7 @@ const styles = {
   width: '40px',
   fontSize: '1rem',
   borderRadius: '20px',
+  backgroundSize: '40px 40px'
   
 }
 

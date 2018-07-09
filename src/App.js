@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import Main from './Main'
 import SignIn from './SignIn'
+import {auth} from './base'
 
 class App extends Component {
 
@@ -17,9 +18,30 @@ class App extends Component {
   }
 
 
-handleAuth = (user) => {
+handleAuth = (oAuthUser) => {
+  
+    const user = {
+      uid: oAuthUser.uid,
+      displayName: oAuthUser.displayName,
+      email: oAuthUser.email,
+      photoUrl: oAuthUser.photoURL,
+    }
+   
   this.setState({user})
   localStorage.setItem('user', JSON.stringify(user))
+}
+
+componentDidMount(){
+  auth.onAuthStateChanged(
+    user =>{
+      if(user){
+        this.handleAuth(user)
+
+      }else{
+this.handleUnAuth()
+      }
+    }
+  )
 }
 
 signedIn = () =>{
@@ -27,6 +49,13 @@ return this.state.user.uid
 }
 
 signOut = () => {
+ 
+  auth.signOut()
+  this.handleUnAuth()
+  
+}
+
+handleUnAuth = () =>{
   this.setState({ user: {} })
   localStorage.removeItem('user')
 }

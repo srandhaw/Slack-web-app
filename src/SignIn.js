@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import { StyleSheet, css } from 'aphrodite'
+import {auth, googleProvider, githubProvider} from './base'
 
 
 class SignIn extends Component{
@@ -10,6 +11,10 @@ email: '',
 
     handleChange = (ev) =>{
         this.setState({email: ev.target.value})
+    }
+
+    authenticate = (provider) => {
+auth.signInWithPopup(provider)
     }
 
     handleSubmit = (ev) =>{
@@ -38,7 +43,8 @@ email: '',
                 className={css(styles.form)}
                 onSubmit={this.handleSubmit}
               >
-                <label
+               <h2>Sign In</h2>
+                {/* <label
                   htmlFor="email"
                   className={css(styles.label)}
                 >
@@ -57,7 +63,27 @@ email: '',
                   className={css(styles.button)}
                 >
                   Sign In
-                </button>
+                </button> */}
+
+                 <button
+              type="button"
+              className={css(styles.button)}
+              onClick={this.authenticate(googleProvider)}
+            >
+             <i className={`fab fa-google ${css(styles.brandIcon)}`}></i>
+              Sign in with Google
+            </button>
+
+             <button
+              type="button"
+              className={css(styles.button, styles.github)}
+              onClick={() =>this.authenticate(githubProvider)}
+            >
+             <i className={`fab fa-github ${css(styles.brandIcon)}`}></i>
+              Sign in with Github
+            </button>
+
+
               </form>
     
               <div className="blurb">
@@ -145,5 +171,12 @@ const styles = StyleSheet.create({
         color: 'white',
         width: '20rem',
       },
+      github: {
+        marginBottom: 0,
+        backgroundColor: '#6e5494',
+      },
+      brandIcon: {
+        marginRight: '1rem',
+      }
     })
       
