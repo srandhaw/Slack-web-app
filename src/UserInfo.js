@@ -30,7 +30,8 @@ const styles = {
   user: {
     flex: 1,
     overflow: 'hidden',
-    marginRight: '0.25em'
+    marginRight: '0.25em',
+    textOverflow: "ellipses"
   }
 }
 
