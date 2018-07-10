@@ -9,8 +9,8 @@ const MessageList = (props) => {
     return(
         <div className = 'MessageList' style = {styles.MessageList}>
          <div class="roomAnnouncement" style = {styles.roomAnnouncement}>
-          <h3 style = {styles.h3}>#general</h3>
-          <p>This is the very beginning of the #general room.</p>
+          <h3 style = {styles.h3}>#{props.room.name}</h3>
+          <p>This is the very beginning of the #{props.room.name} room.</p>
         </div>
         { props.messages.map(msg => (
        <Message message = {msg} key = {msg.id} />

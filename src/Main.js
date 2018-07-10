@@ -31,13 +31,19 @@ rooms: {
 
 }
 
+setCurrentRoom = (roomName) => {
+    const room = this.state.rooms[roomName]
+    this.setState({ room })
+    
+  }
+    
     
 
 
     render(){
         return(
 <div style = {styles} className = "Main">
-<SideBar user = {this.props.user} signOut = {this.props.signOut} rooms = {this.state.rooms}/>
+<SideBar user = {this.props.user} signOut = {this.props.signOut} rooms = {this.state.rooms} setCurrentRoom = {this.setCurrentRoom}/>
 <Chat user = {this.props.user} room={this.state.room}/>
 </div>
         )

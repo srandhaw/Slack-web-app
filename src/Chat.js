@@ -48,7 +48,7 @@ componentWillUnmount(){
         return(
            <div className =  'Chat' style = {styles.chat}>
            <ChatHeader room = {this.props.room}/>
-           <MessageList messages = {this.state.messages}/>
+           <MessageList messages = {this.state.messages} room = {this.props.room}/>
            <MessageForm addMessage = {this.addMessage}/>
            </div> 
         )
