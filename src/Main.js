@@ -9,14 +9,35 @@ class Main extends Component{
 room: {
     name: "general",
     description: "Announcements and general chat"
-}
+},
+
+rooms: {
+    s3afternoon: {
+      name: 's3afternoon',
+      description: 'Ask questions and share code',
+    },
+
+    general: {
+      name: 'general',
+      description: 'Chat about whatever',
+    },
+
+    random: {
+      name: 'random',
+      description: 'Cat GIFs, etc.',
     }
+  }
+
+
+}
+
+    
 
 
     render(){
         return(
 <div style = {styles} className = "Main">
-<SideBar user = {this.props.user} signOut = {this.props.signOut}/>
+<SideBar user = {this.props.user} signOut = {this.props.signOut} rooms = {this.state.rooms}/>
 <Chat user = {this.props.user} room={this.state.room}/>
 </div>
         )
