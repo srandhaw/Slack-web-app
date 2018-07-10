@@ -11,7 +11,7 @@ const Sidebar = (props) => {
     >
       <UserInfo user={props.user}  signOut = {props.signOut}/>
       <h1 style={styles.h1}>XTBC 18</h1>
-      <RoomList rooms = {props.rooms} setCurrentRoom ={props.setCurrentRoom}/>
+      <RoomList rooms = {props.rooms} setCurrentRoom ={props.setCurrentRoom} showRoomForm={props.showRoomForm}/>
     </aside>
   )
 }
