@@ -1,29 +1,30 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { StyleSheet, css } from 'aphrodite'
 
 import Room from './Room'
 
-const RoomList = (props) => {
+const RoomList = ({ rooms }) => {
   return (
     <nav
       className={`RoomList ${css(styles.roomList)}`}
     >
-    <div className={css(styles.heading)}>
+      <div className={css(styles.heading)}>
         <h2 className={css(styles.h2)}>
           Rooms
         </h2>
-        <button
+        <Link
+          to="/chat/new-room"
           className={css(styles.button)}
-          onClick={props.showRoomForm}
         >
           <i className="fas fa-plus-circle" title="Add a room"></i>
-        </button>
+        </Link>
       </div>
       <ul className={css(styles.list)}>
         {
-          Object.keys(props.rooms).map(
+          Object.keys(rooms).map(
             roomName => (
-              <Room setCurrentRoom ={props.setCurrentRoom}
+              <Room
                 key={roomName}
                 roomName={roomName}
               />
@@ -70,6 +71,7 @@ const styles = StyleSheet.create({
       color: 'white',
     },
   },
+
 })
 
 export default RoomList
