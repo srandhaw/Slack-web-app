@@ -1,42 +1,59 @@
-import React from  'react'
-import Message from './Message';
+import React, { Component } from 'react'
 
+import Message from './Message'
 
-const MessageList = (props) => {
+class MessageList extends Component {
+  componentDidUpdate(prevProps) {
+    if (prevProps.messages.length < this.props.messages.length) {
+      this.scrollToBottom()
+    }
+  }
 
-   
+  scrollToBottom = () => {
+    // "smooth" and other options not supported in IE
+    this.messagesEnd.scrollIntoView({ behavior: 'smooth' })
+  }
 
-    return(
-        <div className = 'MessageList' style = {styles.MessageList}>
-         <div class="roomAnnouncement" style = {styles.roomAnnouncement}>
-          <h3 style = {styles.h3}>#{props.room.name}</h3>
-          <p>This is the very beginning of the #{props.room.name} room.</p>
+  render() {
+    const { messages, room } = this.props
+    return (
+      <div
+        className="MessageList"
+        style={styles.messageList}
+      >
+        <div style={styles.roomAnnouncement}>
+          <h3 style={styles.h3}>
+            #{room.name}
+          </h3>
+          <p>This is the very beginning of the #{room.name} room.</p>
         </div>
-        { props.messages.map(msg => (
-       <Message message = {msg} key = {msg.id} />
+
+        {
+          messages.map(msg => (
+            <Message message={msg} key={msg.id} />
+          ))
+        }
+        <div ref={el => this.messagesEnd = el}></div>
+      </div>
     )
-        )}
-        </div>
-    )
+  }
+}
+
+const styles = {
+  messageList: {
+    backgroundColor: 'white',
+    flex: 1,
+    paddingBottom: '1rem',
+    overflowY: 'scroll',
+  },
+
+  roomAnnouncement: {
+    padding: '2rem 1rem',
+  },
+
+  h3: {
+    fontSize: '1.5rem',
+  },
 }
 
 export default MessageList
-
-const styles = {
-    MessageList: {
-        backgroundColor: 'white',
-        flex: 1,
-        paddingBottom: '1rem',
-        overflowY: 'scroll',
-      },
-
-      roomAnnouncement: {
-        padding: '2rem 1rem',
-      },
-
-      h3 :{
-        fontSize: '1.5rem',
-      }
-}
-
-
